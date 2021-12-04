@@ -1,12 +1,12 @@
 Feature:  We are creating this feature file to add Orange HRM Scenarios
 
-  Background: //it will run before everything it is like before bethod
-  Given The user wants to go to login
-  Then The user wants to click login
+#  Background: //it will run before everything it is like before bethod
+#  Given The user wants to go to login
+#  Then The user wants to click login
 
 
 
-  @loginWithoutParams
+  @loginWithoutParams  @Regression
   Scenario: Login to Orange HRM
     Given The user wants to go to orangeHRM application
     When The user wants to enter username and password
@@ -14,7 +14,7 @@ Feature:  We are creating this feature file to add Orange HRM Scenarios
     And The user should be able to navigate dashboard
 
 
-  @LoginWithParams    @Anything  @ForFun
+  @LoginWithParams    @Anything  @ForFun @Regression
   Scenario: Login with credentials
     Given The user wants to go to orangeHRM application
     When The user wants to enter username as "Admin" and the password as "Mv@UE0@dR3f@"
@@ -61,7 +61,7 @@ Feature:  We are creating this feature file to add Orange HRM Scenarios
 
   ## QA will start to test/Create coding
 
-  @ForFun   @Anything
+  @ForFun   @Anything   @Regression  @Maping
     Scenario:
     Given The user wants to go to orangeHRM application
     When The user wants to enter username as "Admin" and the password as "Mv@UE0@dR3f@"
@@ -99,9 +99,9 @@ Feature:  We are creating this feature file to add Orange HRM Scenarios
 
 
 
-  #@configFile_Scenario   @BackgroundPractice
-  #Scenario: Login
-    #And The user should be able to navigate dashboard
+  @configFile_Scenario   @BackgroundPractice
+  Scenario: Login
+   And The user should be able to navigate dashboard
 
   @Candidate  @BackgroundPractice
   Scenario: Verify that we can create a candidate
@@ -115,10 +115,83 @@ Feature:  We are creating this feature file to add Orange HRM Scenarios
     Then The user wants to verify that the user is created
 
 
-  Scenario: about nothing
-    Then the user want to do nothing
+
+
+
+
+    # Data tables/ maping
+  @Maping
+  Scenario:
+    Given The user wants to go to orangeHRM application
+    When The user wants to login orange HRM
+      |Username | Admin      |
+      |Password |Mv@UE0@dR3f@|
+    Then The user wants to click login
+    And The user should be able to navigate dashboard
+    Then The user wants to go to PIM page
+    Then The user wants to see add employee page
+    Then The user wants to add an employee
+      |FirstName|Tom123  |
+      |LastName |Jerry123|
+    Then The user wants to save the information
+    Then The user should be able to see "Personal Details"
+
+    #yukaridaki FirstName LastName kisminin oldugu yer sayesinde hem more readable oluyor hem de ufak bir degisiklik
+  #oldugunda buraya gelip yeni seyler ekleyebiliyorsun, diger turlusu daha karmasik olabilir o yuzden bu daha kolay
+#bunlarin isimine data table denir
+
+  @Mapping_TC2
+  Scenario: Verify that add new employee with login credentials
+    Given The user wants to go to orangeHRM application
+    When The user wants to login orange HRM
+      |Username | Admin      |
+      |Password |Mv@UE0@dR3f@|
+    Then The user wants to click login
+    And The user should be able to navigate dashboard
+    Then The user wants to go to PIM page
+    Then The user wants to see add employee page
+    Then The user wants to add an employee
+      |FirstName|Tom123122sdfv389  |
+      |LastName |Jerry123123123423|
+    Then The user wants to add login details
+      |User Name   | erkanozclkll123|
+      |Password    |Erkann!123  |
+      |Status      |Disabled   |
+    Then The user wants to save the information
+    Then The user should be able to see "Personal Details"
+
+#bundan onceki senaryolar error verirse onemseme cunku artik HOOK kurduk ve ona gore isleyecek her sey
+  @List_TC1
+  Scenario: verify that add new employee with Login in List way
+    Given The user wants to go to orangeHRM application
+    When the user wants to login in list way
+      |Admin       |Mv@UE0@dR3f@|
+    Then The user wants to click login
+    And The user should be able to navigate dashboard
+    Then The user wants to go to PIM page
+    Then The user wants to see add employee page
+    Then The user wants to add an employee in a list way
+      |Tommm123| Jerryyyyy|
+    Then The user wants to add login details in a list way
+      |renastech123 | RenasTech2021 |Disabled|
+    Then The user wants to save the information
+    Then The user should be able to see "Personal Details"
 
 
 
 
 
+  @Hook
+  Scenario: Verify That the Hooks works fine
+    Given The user wants to login website
+    Then the user wants to verify that we can login
+
+  @Hook
+  Scenario: Verify That the Hooks works fine
+    Given The user wants to login website
+    Then the user wants to verify that we can login
+
+  @Hook
+  Scenario: Verify That the Hooks works fine
+    Given The user wants to login website
+    Then the user wants to verify that we can login

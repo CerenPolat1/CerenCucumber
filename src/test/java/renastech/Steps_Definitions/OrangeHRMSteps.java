@@ -14,6 +14,7 @@ import renastech.utils.ConfigurationsReader;
 import renastech.utils.Driver;
 
 import java.util.List;
+import java.util.Map;
 
 public class OrangeHRMSteps {
 
@@ -21,7 +22,7 @@ public class OrangeHRMSteps {
     @Given("The user wants to go to orangeHRM application")
     public void the_user_wants_to_go_to_orange_hrm_application() {
         System.out.println("This is a Login Step");
-        Driver.getDriver().get("https://renastech-osondemand.orangehrm.com");
+        Driver.getDriver().get("https://renastech-osondemand.orangehrm.com/");
         CommonUtils.hardWait(2000);
     }
 
@@ -106,6 +107,7 @@ public class OrangeHRMSteps {
     public void the_user_wans_to_see_add_employee_page() {
 
         WebElement addEmployee=Driver.getDriver().findElement(By.xpath("//a[.='Add Employee']"));
+        CommonUtils.hardWait(2000);
         addEmployee.click();
         CommonUtils.hardWait(2000);
     }
@@ -228,8 +230,114 @@ public class OrangeHRMSteps {
         Driver.getDriver().close();
     }
 
+    @When("The user wants to login orange HRM")
+    public void the_user_wants_to_login_orange_hrm(Map<String, String> dataTable) {
+
+        System.out.println(dataTable.get("This is username: "+ dataTable.get("Username")));
+        System.out.println(dataTable.get("This is Password: "+ dataTable.get("Password")));
+
+        WebElement username = Driver.getDriver().findElement(By.id("txtUsername"));
+        WebElement password = Driver.getDriver().findElement(By.id("txtPassword"));
+
+        username.sendKeys(dataTable.get("Username"));
+        password.sendKeys(dataTable.get("Password"));
+
+    }
+    @Then("The user wants to see add employee page")
+    public void the_user_wants_to_see_add_employee_page() {
+        WebElement addEmployee=Driver.getDriver().findElement(By.xpath("//a[.='Add Employee']"));
+        CommonUtils.hardWait(2000);
+        addEmployee.click();
+        CommonUtils.hardWait(2000);
+    }
+
+    @Then("The user wants to add an employee")
+    public void the_user_wants_to_add_an_employee(Map<String, String> dataTable) {
+
+        System.out.println("The first name is: "+ dataTable.get("FirstName") );
+        System.out.println("The last name is: "+ dataTable.get("LastName") );
+
+        CommonUtils.waitForPageToLoad(10);
+        WebElement usernamBox=Driver.getDriver().findElement(By.xpath("//input[@class='formInputText']"));
+        usernamBox.sendKeys(dataTable.get("FirstName"));
+        CommonUtils.waitForPageToLoad(10);
+
+        WebElement lastName=Driver.getDriver().findElement(By.name("lastName"));
+        lastName.sendKeys(dataTable.get("LastName"));
 
     }
 
+//eger yazilacak yerler varssa app.'te htlm'de kesin input olacaktir bu senin sendkeys kullanmani saglar
+    @Then("The user wants to add login details")
+    public void the_user_wants_to_add_login_details(Map<String, String> dataTable) {
+
+        WebElement checkbox= Driver.getDriver().findElement(By.id("chkLogin"));
+        WebElement username=Driver.getDriver().findElement(By.id("user_name"));
+        WebElement password=Driver.getDriver().findElement(By.id("user_password"));
+        WebElement repassword=Driver.getDriver().findElement(By.id("re_password"));
+        WebElement status=Driver.getDriver().findElement(By.id("status"));
+
+        CommonUtils.clickWithWait(checkbox);
+        username.sendKeys(dataTable.get("User Name"));
+        password.sendKeys(dataTable.get("Password"));
+        repassword.sendKeys(dataTable.get("Password"));
+
+        CommonUtils.selectFromDropDown(status, dataTable.get("Status"));
+    }
+
+    @When("the user wants to login in list way")
+    public void the_user_wants_to_login_in_list_way(List<List<String>> dataTable) {
+                                                  // birinci list:row, ikinci list:colomn
+        System.out.println("Username: "+dataTable.get(0).get(0));
+        System.out.println("Username: "+dataTable.get(0).get(1));
+
+        WebElement username = Driver.getDriver().findElement(By.id("txtUsername"));
+        WebElement password = Driver.getDriver().findElement(By.id("txtPassword"));
+
+        username.sendKeys(dataTable.get(0).get(0));
+        password.sendKeys(dataTable.get(0).get(1));
+
+    }
+
+    //!!!!sometimes we cant categorise some datas, there might be multiple datas, it is not like username, password
+    //!!!more than 2 things, in this stituation, you need to use list
+
+
+    @Then("The user wants to add an employee in a list way")
+    public void the_user_wants_to_add_an_employee_in_a_list_way(List<List<String>> dataTable) {
+        WebElement username= Driver.getDriver().findElement(By.id("firstName"));
+        WebElement lastName= Driver.getDriver().findElement(By.id("lastName"));
+
+        username.sendKeys(dataTable.get(0).get(0));
+        lastName.sendKeys(dataTable.get(0).get(1));
+    }
+
+    @Then("The user wants to add login details in a list way")
+    public void the_user_wants_to_add_login_details_in_a_list_way(List<List<String>> dataTable) {
+
+        WebElement username= Driver.getDriver().findElement(By.id("firstName"));
+        WebElement middleName=Driver.getDriver().findElement(By.id("middleName"));
+        WebElement lastName= Driver.getDriver().findElement(By.id("lastName"));
+
+        username.sendKeys(dataTable.get(0).get(0));
+        middleName.sendKeys(dataTable.get(0).get(1));
+        lastName.sendKeys(dataTable.get(0).get(2));
+
+    }
+
+    @Given("The user wants to login website")
+    public void the_user_wants_to_login_website() {
+        System.out.println("Test Test");
+    }
+    @Then("the user wants to verify that we can login")
+    public void the_user_wants_to_verify_that_we_can_login() {
+        System.out.println("Test Test");
+
+        CommonUtils.hardWait(5000);
+    }
+
+
+
+}
 
 
