@@ -45,6 +45,8 @@ Feature:  We are creating this feature file to add Orange HRM Scenarios
       # integer
       # double
 
+  #proje kisminfda gordugun src:source demekmis
+
 
   # Eclipse , NetBeans ,
 
@@ -52,7 +54,7 @@ Feature:  We are creating this feature file to add Orange HRM Scenarios
 
         # Framework sunlardan olusur -->   JAVA-- Maven -- > Selenium -- Cucumber  -- POM
 
-
+#what is JUnit??????
 
   ##   user story is  created by PO
   ##   Groom the story   DEV - QA - BA   -- > 3 Amigos
@@ -74,6 +76,30 @@ Feature:  We are creating this feature file to add Orange HRM Scenarios
     Then The user wants to save the information
     Then The user should be able to see "Personal Details"
 
+
+
+
+
+    #data driven testing=scenario outline ---it works with examples
+  #once ilk ornekle run edecek sonra browseri baslatip yeniden run ettiginde ilkini ignore edip 2. ornegi yazdiracak
+  #yani 1 senaryo 2 senaryoya donusmus oluyor
+  #why are we using this one?
+  #
+
+
+  @Scenario_Outline
+  Scenario Outline:
+    Given The user wants login as admin
+    Then The user wants to verify dashboard
+    When The user wants to go to admin
+    Then The user wants to go to Nationalities
+    Then The user wants to add new Nationalities
+    Then The user wants to add Nationalities as "<Nationalities>"
+
+    Examples:
+      |Nationalities|
+      |erk18234da    |
+      |erk3129348    |
 
 
 
@@ -195,3 +221,25 @@ Feature:  We are creating this feature file to add Orange HRM Scenarios
   Scenario: Verify That the Hooks works fine
     Given The user wants to login website
     Then the user wants to verify that we can login
+
+
+
+  @PageObjectModel
+  Scenario: Verify that the user should be able to add new Nationality
+    Given The user wants login as admin
+    Then The user wants to verify dashboard
+    When The user wants to go to admin
+    Then The user wants to go to Nationalities
+    Then The user wants to add new Nationalities
+    Then The user wants to add Nationalities as "Batman"
+    And The user should be able to see "Batman" in Nationality page
+
+
+
+  @PageObjectModel2
+  Scenario: Verify that we can click all the checkboxes are available
+    Given The user wants login as admin
+    Then The user wants to verify dashboard
+    When The user wants to go to admin
+    Then The user wants to go to Nationalities
+    Then The user wants to click all checkboxes

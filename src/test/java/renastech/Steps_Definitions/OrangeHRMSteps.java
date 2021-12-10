@@ -333,6 +333,8 @@ public class OrangeHRMSteps {
     public void the_user_wants_to_verify_that_we_can_login() {
         System.out.println("Test Test");
 
+        //Assert.assertTrue(false); //fail vermesi icin bunu koyduk
+
         CommonUtils.hardWait(5000);
     }
 

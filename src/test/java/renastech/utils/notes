@@ -1,0 +1,18 @@
+
+
+
+When interview opens the app, and ask you what is most important thing in this app?
+--1-LOGIN/LOGOUT
+
+Who decides smoke testing?
+--in Grooming meeting, tester, developer and PO (3 AMIGOS)
+--In grooming meeting, we talk about what should we include smoke testing, regression testing, we determine that meeting
+
+How do you do smoke testing in cucumber?
+we just add @Smoketesting tags to scenarios and just change tags as @@Smoketesting and run them
+they are like regular testing.There is no other way in cucumber to test smoke
+
+
+smoke ve regression'i ayni test suit'e konur mu test yapmak icin???
+--bunun 2 yolu var.. exising feature'in icine koyup da yapabilirsin tag ile, ya da
+yeni bir feature create edersin ve mesela smoke_testing.feature gibi smoke scenario'larini bunun icine koyup test edersin

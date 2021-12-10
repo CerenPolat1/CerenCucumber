@@ -3,6 +3,8 @@ package renastech.Steps_Definitions;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import renastech.utils.CommonUtils;
 import renastech.utils.ConfigurationsReader;
 import renastech.utils.Driver;
@@ -30,20 +32,33 @@ public class Hooks {
     // ScrrenShot
     // Report
 */
+@Before
+public void setup(Scenario scenario) {
 
-    @Before
-    public void setup(Scenario scenario) {
+    Driver.getDriver().manage().window().maximize();
+    Driver.getDriver().get(ConfigurationsReader.getProperty("url"));
+    Driver.getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
-        Driver.getDriver().manage().window().maximize();
-        CommonUtils.waitForPageToLoad(1000);
-        Driver.getDriver().get(ConfigurationsReader.getProperty("url"));
-        Driver.getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-
-    }
+}
 
 
     @After
-    public void tearDown(){
+    public void tearDown(Scenario scenario){
+
+    //if condition sana screenshot almani saglar
+
+        if(scenario.isFailed()){
+            byte[] data = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(data, "image/png", scenario.getName());
+        }
+
+//fail aldiginda target-right click-open in-finder dediginde cikan sayfadaki target'i tikladiginda default-cucumber-report cikacak
+// bu ismi de biz verdik, report'u actidiginda orada attached image goreceksin boylelikle sikintili yer eklenmis olacak
+
+ // rerun yaptigin her sefer report yeniden yazilip kaydolur
+
         Driver.closeDriver();
+
     }
+
 }

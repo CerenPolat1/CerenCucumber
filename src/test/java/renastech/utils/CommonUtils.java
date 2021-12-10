@@ -192,8 +192,25 @@ public class CommonUtils {
     }
 
 
+//
+//     * This method created to enter text with Explicit wait
+//     * @param element
+//     * @param text
+//     */
+    private static WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 20);
 
+    public static void enterText(WebElement element, String text){
+        waitForPageToLoad(10);
+        wait.until(ExpectedConditions.visibilityOf(element));
+        element.clear();
+        element.sendKeys(text);
+        wait.until(ExpectedConditions.attributeToBe(element, "value", text));
+        System.out.println("Entering text: " + text);
+    }
 
+//hemen yularidaki method sayesinde once page yuklenecek, sonra element'i sayfada gorecek,
+// sonra eger elementin icinde yazili bir kisim varsa once onu clear edecek, sonra yazzini gececek
+    //sonra onu verify edecek
 
 
 

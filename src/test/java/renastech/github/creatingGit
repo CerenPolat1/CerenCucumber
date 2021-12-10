@@ -1,9 +1,7 @@
 /*
-
 git to local:
-
   git init
-  git add README.md
+  git add .
   git commit -m "first commit"
   git branch -M main
   git remote add origin (url) https://github.com/CerenPolat1/Ceren.git
