@@ -1,0 +1,13 @@
+
+2021-12-10 11:17:42 INFO  Hooks:42 - Logger expample
+2021-12-10 11:18:39 INFO  Hooks:42 - Logger expample
+2021-12-10 11:30:17 INFO  Hooks:49 - Logger expample
+2021-12-10 11:34:42 INFO  Hooks:49 - Logger expample
+2021-12-10 11:34:50 INFO  OrangeHRMWithPOM:27 - this is log4j
+2021-12-10 11:35:00 INFO  Hooks:49 - Logger expample
+2021-12-10 11:35:06 INFO  OrangeHRMWithPOM:27 - this is log4j
+2021-12-10 11:37:59 INFO  Hooks:49 - Logger expample
+2021-12-10 11:38:07 INFO  OrangeHRMWithPOM:27 - this is log4j
+2021-12-10 11:38:17 INFO  Hooks:49 - Logger expample
+2021-12-10 11:38:23 INFO  OrangeHRMWithPOM:27 - this is log4j
+2021-12-10 12:26:16 INFO  Hooks:52 - Logger expample

@@ -3,6 +3,8 @@ package renastech.Steps_Definitions;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+
+import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import renastech.utils.CommonUtils;
@@ -32,9 +34,22 @@ public class Hooks {
     // ScrrenShot
     // Report
 */
-@Before
-public void setup(Scenario scenario) {
 
+  private static final Logger logger=Logger.getLogger(Hooks.class); //bunu kullanmak istedigin her class'da
+    //declera etmen lazim yoksa calismaz bu sekilde yani
+
+  //bunu kullanmak icin once resources altina log4j icin properties olusturuyorsun
+    //icine gerekli bilgileri ekliyorsun sonra buraya gelip apatche' olanini import ediyorsun
+  //bu sana console'da detayli bilgi sunuyor, ayrica solda projenin altinda
+    // sen bunu kurup uygulamay baslayinca klasoru aciliyor
+    //ve nerelerde kullandigini gormek istersen o dosyadan bulabilirsin
+
+    //bu jog4j sadece senin daha fazla bilgi sahibi olman icin baska bi nedenle kullanilmiyor
+
+
+   @Before
+   public void setup(Scenario scenario) {
+   logger.info("Logger expample");
     Driver.getDriver().manage().window().maximize();
     Driver.getDriver().get(ConfigurationsReader.getProperty("url"));
     Driver.getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);

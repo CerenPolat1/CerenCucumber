@@ -76,15 +76,50 @@ Feature:  We are creating this feature file to add Orange HRM Scenarios
     Then The user wants to save the information
     Then The user should be able to see "Personal Details"
 
+# When The user wants to enter username as "Admin" and the password as "Mv@UE0@dR3f@"
+#  bu sekilde "Admin" yazinca parametrization olur
+#  hem bu parametrization hem de data table(yani alttaki) DATA DRIVEN TESTING OLUYORRRR
+# |Nationalities| ->header
+#      #|erk18234da    |    -> table
+#      #|erk3129348    |
 
 
 
-
-    #data driven testing=scenario outline ---it works with examples
+    #Data Driven Testing=scenario outline ---it works with examples
   #once ilk ornekle run edecek sonra browseri baslatip yeniden run ettiginde ilkini ignore edip 2. ornegi yazdiracak
   #yani 1 senaryo 2 senaryoya donusmus oluyor
-  #why are we using this one?
-  #
+  # example koyarak data eklemis oluyorsun
+  #"<Nationalities>" yani "< >" icine yazi yaziyorsun
+  #"<Nationalities> header oluyor,
+      #|Nationalities| ->header
+      #|erk18234da    |    -> table
+      #|erk3129348    |
+
+
+#APATCHE POI --1. Apache POI API Based On OPC and OOXML Schemas (MVNREPOSITORY'DEKI ISMI BU) 5.0.0 VERSION
+#  APATCHE COMMONS IO- HELPS YOU TO WORK WITH FILES LIKE EXCELL --2.11.0
+
+#  WORKBOOK-WHOLE EXCELL FILE
+# SHEET-EXCELLDEKI SAYFALAR
+#ROW- EXCELDEKI YATAY SIRA
+#  CELL-
+
+#  IN EXCELL WE NEED TO KNOW TO GET DATA FROM EXCELL: ROW NUMBER, SHEET NUMBER AND COLOMN NUMBER
+
+
+Scenario: Verify that we can login with excel data
+Given The user wants to login with excel
+Then The user wanst to verify dashboard
+
+
+
+
+#  BDD --------------------FOR CUCUMBER
+# KEYWORD DRIVEN TESTING
+#  TEST DRIVEN TESTING ----FOR TESTNG
+#  DATA DRIVEN TESTING----USING EXTERNAL FILE OR DATA  ---WE TAKE OUR DATAS FROM XML FILES
+#  YANI BIZIM BILGIYI ALDIGIMIZ CONF.PROPERTIES BIR INTERNAL FILE ISTEDIGIMIZDE HEMEN DEGISTIRIRIZ
+#  YUKARIDAKI ISE EXTERNAL YANI EXEL FILE'A STORE ET SONRA ORDAN KULLAN GIBI
 
 
   @Scenario_Outline

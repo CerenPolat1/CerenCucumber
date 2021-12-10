@@ -1,0 +1,21 @@
+
+
+
+0'dan proje olusturmak:
+
+
+1-Jva-Maven Project (1.8 version)
+2-Dependency(cucumber-java, selenium core, selenium junit )
+3-Plugins (cucumber for java, gherkin)
+
+
+what is jar file?
+it is a java library
+
+
+have you ever used it?
+no, because we use maven repository, we dont need to download jar file
+
+
+why we use log4j??
+bec. it more useful than systemoutprintln
