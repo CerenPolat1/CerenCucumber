@@ -21,10 +21,14 @@ public class Driver {
 
         private static ThreadLocal<WebDriver> driverPool=new ThreadLocal<>();//it will create a pool of driver and
         // everytime it will launch a new driver(more than one driver)
+    //it will create a pool of driver and
+    // everytime it will launch a new driver(more than one driver)
 
     //alttaki method sayesinde birden fazla senaryo ayni anda run edebilecek, birini run edecek kapatacajk digerini run edecek
     private Driver(){
         }
+
+        //aynbi anda birden fazla senaryo yani page class run ettiginde driver confuse yasiyor hangisine gidicem diye singlelton onu cozer
 
         public static WebDriver getDriver(){// means launch chrome
             if (driverPool.get()==null){//if it is null launch a new one

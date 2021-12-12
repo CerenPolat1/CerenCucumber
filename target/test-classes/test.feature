@@ -36,7 +36,7 @@ Feature:
   #language that testers use to define test cases in cucumber **********
   #this language describe uses cases or scenarios in a way that can be read and understand
   #almost everyone in the team
-
+  @parellel
   Scenario: Login to Matrix LMS
     Given The user wants to go to Matrix
     When The user wants to enter username

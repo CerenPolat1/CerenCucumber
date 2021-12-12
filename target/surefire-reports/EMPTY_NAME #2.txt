@@ -1,0 +1,31 @@
+-------------------------------------------------------------------------------
+Test set: EMPTY_NAME #2
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 5.428 s <<< FAILURE! - in EMPTY_NAME #2
+EMPTY_NAME #2.Login to Matrix LMS  Time elapsed: 5.428 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step 'The user wants to go to Matrix' and 3 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("The user wants to go to Matrix")
+public void the_user_wants_to_go_to_matrix() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("The user wants to enter username")
+public void the_user_wants_to_enter_username() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("The user wants to enter password")
+public void the_user_wants_to_enter_password() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("The user wants to click submit")
+public void the_user_wants_to_click_submit() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+

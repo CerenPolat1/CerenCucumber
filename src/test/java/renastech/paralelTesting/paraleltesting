@@ -1,0 +1,125 @@
+
+
+
+bunlari yapabilmek icin pom xml'e some pluginler eklemelisin onlar zayten nette hazir var ben asigiya da koydum
+
+In order to run paralel testing in cucumber????
+  1-we need to have plugin
+  2-we need some ready code you can fin it on the internet
+bunlardan ilki:
+1-Maven compiler plugin(apache.maven.plugins):
+sadece maven'in kendisi tek basina kodu compile edemiyor, bunu saglamak icin maven plugin kullanilir,
+maven plugin sayesinde test case'ler run edebiliyor
+
+2-surefire-plugin (apache.maven.plugins):
+it give you  main structure, how you gonna run
+bunun icinde yer alan ilk configuration'da parelel method var
+thread count var:how many browser in one time you wanna open it, kac girersen o kadar browser ayni anda calisir
+kac tane browser istiyorsan <threadCount>2</threadCount > un icine o kadar sayi yaz
+yani tane senaryon run edecekse ona gore sayi giriyorsun
+include'un icinde TestRunner var o da senin onu run edecegin anlamina gelir
+
+simdiye kadar yaptigin tum reportlarin sonuclarini default-cucumber-report.html'den gorebilirsin.
+
+3-masterthought plugin(maven-cucumber-reporting):
+
+seni yeni bir report verir.sol'daki maven'a tikla, mvn verify yaz ve enter de report vermeye baslayacak concolda,
+sonuclari gormek icinse target'a git sag click yap-> openIn -> finder ve targetin icine girdiginde report'u goreceksin
+cucumber html report olarak cesitli reportlar goreceksin
+
+
+PARALLEL TESTING ICIN:
+diyelim sen 3 feature file'da ayni tagi koydun:parallel testing yazdin, sonra da TestRunner'da bunlari okuttun
+sonra sol ust kenarda Maven var ona tikla sana proje ismini, Lifecyle, Plugins, Dependency ba;liklarini gosterecek
+onlarin ustunde m yazan yeri tikla, sana bir cok senecek sunacak, sen ise oeraya mvn test yazacaksin
+sonra enter dediginde sayfa kendiliginden run edecek,
+sonuclari gormek icinse target'a git sag click yap -> openIn -> finder ve targetin icine girdiginde report'u goreceksin
+Ve bun sekilde 3 farkli feature'da yani aslinda 3 farkli browser oluyor, ayni anda testing yapiyoir:paralel testing
+
+
+//if you wanna mvn test, the report will be only the default cucumber report
+//f you run mvn verify, it will give you masterthought report
+//genelde mvn verify, kullanilir
+
+///surefire plugin, bizim icin onemli, you can put some configuration, sana paralel testing yapmana izin verir
+ <include>**/TestRunner*.java</include>  buraya hangi class ismini koyarsan o run eder
+
+
+  <build>
+  <plugins>
+  <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.6.1</version>
+      <configuration>
+          <source>8</source>
+          <target>8</target>
+      </configuration>
+  </plugin>
+  <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-surefire-plugin</artifactId>
+      <version>3.0.0-M5</version>
+      <configuration>
+          <testFailureIgnore>true</testFailureIgnore>
+          <parallel>methods</parallel>
+          <threadCount>2</threadCount >
+          <forkCount>2C</forkCount>
+          <perCoreThreadCount>false</perCoreThreadCount>
+          <includes>
+              <include>**/TestRunner*.java</include>
+          </includes>
+      </configuration>
+  </plugin>
+      <plugin>
+          <groupId>net.masterthought</groupId>
+          <artifactId>maven-cucumber-reporting</artifactId>
+          <version>5.4.0</version>
+          <executions>
+              <execution>
+                  <id>execution</id>
+                  <phase>verify</phase>
+                  <goals>
+                      <goal>generate</goal>
+                  </goals>
+                  <configuration>
+                      <projectName>Cucumber HTML Reports</projectName>
+                      <outputDirectory>${project.build.directory}</outputDirectory>
+                      <inputDirectory>${project.build.directory}</inputDirectory>
+                      <jsonFiles>
+                          <param>**/cucumber*.json</param>
+                      </jsonFiles>
+                  </configuration>
+              </execution>
+          </executions>
+      </plugin>
+  </plugins>
+  </build>
+
+
+
+Bunu TESTING'de yapmak istersen eger o zaman soyle:
+projenin ustune sag click ->new file> tesng.xml yazman lazim yani xml olmak zorunda sonra internete testng.xml cikacak
+ve DOCUMANTATION-TestNG sayfasini tikla hangisi sana uygunsa  oradaki kodu copy et bu tesng.xml'in icine koy
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="1" >     // bunun yan tarafina verbosadan sonra parallel yazinca kendi ekleme yapar
+  <test name="Nopackage" >
+    <classes>
+       <class name="NoPackageTest" />
+    </classes>
+  </test>
+
+  <test name="Regression1">
+    <classes>
+      <class name="test.sample.ParameterSample"/>
+      <class name="test.sample.ParameterTest"/>
+    </classes>
+  </test>
+</suite>
+
+
+xml'deki verbose'i 1 yaparsan sana detay verir sayiyi arttirdikca daha detayli bilgi verir
+
+..report olayi manager senden isteyince verilir

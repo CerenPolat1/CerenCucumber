@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features ="src/test/resources",
         glue = "renastech.Steps_Definitions", //step definition
-        tags = "@Scenario_Outline", // "@Hook and @Candidate"     "@Hook or @Candidate"         "@Hook, @Candidate"
+        tags = "@parellel", // "@Hook and @Candidate"     "@Hook or @Candidate"         "@Hook, @Candidate"
                      //ikisini run eder                //iksiinden birini run eder    //ikisini run eder
 
         //senaryolara verdigin isimler oluyor feature'a yazdigin, istedigin ismi verebilirsin

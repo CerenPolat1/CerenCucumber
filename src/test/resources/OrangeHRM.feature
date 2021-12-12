@@ -255,7 +255,7 @@ Given The user wants to login with excel
     Given The user wants to login website
     Then the user wants to verify that we can login
 
-  @Hook
+  @Hook @parellel
   Scenario: Verify That the Hooks works fine
     Given The user wants to login website
     Then the user wants to verify that we can login

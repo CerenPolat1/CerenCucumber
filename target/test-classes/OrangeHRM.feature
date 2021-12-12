@@ -107,9 +107,12 @@ Feature:  We are creating this feature file to add Orange HRM Scenarios
 #  IN EXCELL WE NEED TO KNOW TO GET DATA FROM EXCELL: ROW NUMBER, SHEET NUMBER AND COLOMN NUMBER
 
 
+
+
+  @excel
 Scenario: Verify that we can login with excel data
 Given The user wants to login with excel
-Then The user wanst to verify dashboard
+#Then The user wanst to verify dashboard
 
 
 
@@ -252,7 +255,7 @@ Then The user wanst to verify dashboard
     Given The user wants to login website
     Then the user wants to verify that we can login
 
-  @Hook
+  @Hook @parellel
   Scenario: Verify That the Hooks works fine
     Given The user wants to login website
     Then the user wants to verify that we can login
