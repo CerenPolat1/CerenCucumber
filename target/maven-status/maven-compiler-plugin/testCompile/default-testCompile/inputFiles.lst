@@ -10,4 +10,5 @@
 /Users/cerenpolat/IdeaProjects/seleniumCucumberTesting/src/test/java/renastech/Pages/Admin_Page.java
 /Users/cerenpolat/IdeaProjects/seleniumCucumberTesting/src/test/java/renastech/Steps_Definitions/OrangeHRMSteps.java
 /Users/cerenpolat/IdeaProjects/seleniumCucumberTesting/src/test/java/renastech/Steps_Definitions/OrangeHRM_homework.java
+/Users/cerenpolat/IdeaProjects/seleniumCucumberTesting/src/test/java/renastech/utils/Excel_Utils.java
 /Users/cerenpolat/IdeaProjects/seleniumCucumberTesting/src/test/java/renastech/utils/Driver.java

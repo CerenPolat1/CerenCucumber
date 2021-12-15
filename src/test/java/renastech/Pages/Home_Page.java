@@ -9,8 +9,8 @@ import renastech.utils.Driver;
 public class Home_Page {
 
 public Home_Page(){
-    PageFactory.initElements(Driver.getDriver(), this);
-}
+    PageFactory.initElements(Driver.getDriver(), this); //page ile drive
+}  //driver, page arasindaki baglanti icin kullaniliyor
 
 //how do you implement page object model??? **************
 // when i declare the page, i create PAGE OBJECT CONSTRUCTOR, I CALL INITELEMENTS METHOD THAT WILL INCLUDE MY DRIVER

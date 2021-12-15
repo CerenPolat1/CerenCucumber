@@ -65,6 +65,9 @@ neden yukaridaki method'a webelementi yerlestirdik??? cunku bu webelement yukari
 olmasini istiyoruz belki daha sonra degistirmek istiycez diye
  */
 
+    //*****getter methodu disinda setter'i step_definitoin'da gettext, gettitle gibi seylerde kullanamiyorsun
+    //sadece getter kullamnilir
+
 
     //bu sana tum table'daki check box'lari verecek
 

@@ -63,6 +63,8 @@ Feature:  We are creating this feature file to add Orange HRM Scenarios
 
   ## QA will start to test/Create coding
 
+#  eger sayayi parantez icinde yazmazsan sonda, sana int verir " " ile yazarsan string verir
+
   @ForFun   @Anything   @Regression  @Maping
     Scenario:
     Given The user wants to go to orangeHRM application
@@ -140,8 +142,9 @@ Given The user wants to login with excel
       |erk3129348    |
 
 
-
-
+#example her zaman en sona yazilir, eger yazmazsan run etmez
+#eger smoke ve regsession taglelerini ana feature'una girmezsen smoke veya regression feature'u run ettiginde
+# testurnner'da  tag eklemedigin gorunmez, yani her iki feature'a da eklemen lazim
 
 
          # BDD Framework

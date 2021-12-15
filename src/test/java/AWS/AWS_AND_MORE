@@ -1,0 +1,127 @@
+
+
+
+CLOUD SERVERS:
+1-AWS --MOST POPULAR AND MOST DEMANDED bec. so easy, so secure
+2-GOOGLE CLOUD
+3-MICROSOFT AZURE
+
+why are we using cloud computing???
+1-cost efficent--it hels us reaching everywhere.. many people reach out cloud computing from their region
+
+AWS has multiple locations, US, EU,ASIA.. ->16,, UPCOMING 6 REGIONS
+In AWS our most used virtual server in cloud is EC2 machine, you can use it for any purpose
+
+WHAT IS EC2 MACHINE?
+A CORE PART OF AMAZON"S CLOUD COMPUTIN GPLATFORM
+WE ARE CALLING IT INSTANCE
+
+TERMINOLOGIES:
+1-INSTANCE= ONE RUNNING VIRTUAL MACHINE
+2-INSTANCE TYPE: HARDWARE CONFIGURATION:CORES, MEMORY, DISK
+3-INSTANCE STORE VOLUME=TEMPOPARY DISK ASSOCIATED WITH INSTANCE
+4-IMAGE(AMI): STORED BITS WHICH CAN BE TURNED INTO INSTANCES--COPY OF VIRTUAL MACHINE, IF YOU NEED, IT GIVES YOU A COPY
+5-REGION: GEOGRAPHIC LOCATION, PRICE, LAWS, NETWORK LOCALITY
+AVAILABILITY ZONE: SUBDIVISION OF REGION IS FAULT-INDEPENDENT
+6-KEY PAIR: CREDENTIALS USED TO ACCESS VM FROM COMMAND LINE
+
+
+GETTING STARTED WITH AMAZON EC2:
+STEP 1  SIGN UP AMAZON EC2
+STEP 2  CREATE KEY PAIR
+STEP 3  LAUNCH AN AMAZON EC2 INSTANCE
+STEP 4  CONNECT TO THE INSTANCE
+STEP 5  CUSTIMISE THE INSTANCE
+STEP 6  TERMINATE INSTANCE AND DELETE THW VOLUME CREATED
+
+MESELA NEDEN NETFLIX USES THOUSAND OF SERVERS???
+BECAUSE OF INTERNET LATENCY(GECIKME), TO PROVIDE SPEED AND FAST ACCESS THEY HAVE TOUANDS OF SERVERS
+VE BY SERVERLAR DUNYANIN CESITLI YERLERINDEDIR, TEK BI NOKTADA DEGIL
+TO SUPPORT DEMAND.
+
+DOCKER??
+IT IS LIKE A CONTAINER
+TUM SAHIP OLMAN GEREKEN BILESENLER DOCKER'DA TOPLANIR VE ALL PAERT OF APP. WORKS IN SEPARETE CONTAINERS
+ISTEDIGIN SEYI ORADAN CAGIRIRI VE KULLANIRSIN, IXINDE WINDOWS, LINUX, MAC OLDUGUNU DUSUN VE SEN HANGISINI ISTIYORSAN ONU KULLANIRSIN
+YOU WANNA RUN TEST CASES BUT YOUR REQUIRES SAYS I WANNA RUN 5 OF THEM IN SMOKE TESTING BUT I RUN THEM IN WINDOWS,
+LINUX AND MAC OS, I WANNA RUN THEM IN CHROME(WINDOWS), FIREFOX, SAFARI(SAFARI), OPERA (LINUX)
+ALL OF THEM EXECUTE IN DOCKER, OTHERWISE IT WOULD BE HEAVY, MY  LAPTOP MIGH NOT HANDLE ALL THESE THINGS
+AMA GENELDE DOCKER LINUX VE WINDOSLA CALISIR CUNKU SETUP'I KOLAY
+
+PEKI VIRTUAL MACHINE VE DOCKER ARASINDAKI FARK NE??
+IN VIRTUAL. EACH VIRTUSL MACHINE HAS THEIR OWN OPERATING SYSTEM, IT WOULD BE VERY DIFFICULT TO HANDLE IT
+BUT IN DOCKER EACH ONE HAS THEIR OWN OPERATING SYSTEM IN THE CONTAINERS AND ISOLATE FROM OTHERS
+
+CODKER IS FREE SOURCE
+AWS IS NOT FREE, BUT SOME SERVICES ARE FREE
+
+
+DOCKER'LA SENIN ISIN YOK IS HAYATINDA DA SETUPININ KURULMASINDA INVOLVE OLMUYORSUN, AMA NE OLDGUNU BILIYORSUN
+HAVE YOU EVER EXPERIENED WITH DOCKER??
+NO, BUT I KNOW WHAT IS IT
+
+KUBERNETES:
+GOOGLE EVERY YEAR NEEDS BILLIONS OF CONTANIERS BECAUSE IT HAS LOTS OF PRODUCT
+THASTW WHY GOOGLE DESIGN KUBERNETES--OPEN SOURCE
+IT HELPS IN AUTOMATING APP DEPLOYMENT, SCALLING, MANAGEMENT
+IT PROVIES CONNECTION BETWEEN ALL CONTANIERS
+MANY COMPANYIES DOSNT USE IT BEC. IT IS BRAND NEW
+
+MICROSERVISES
+IT IS REALLY OLD
+
+
+DOCKERS --DIFFERENT CONTAINERS IN DIFFERENT ARES
+KUBERNETIES--  ALL COMPONENTS WORK TOGETHER
+
+
+jenkins:
+
+Jenkins also supports predefined aliases to schedule build:
+		@hourly, @daily, @weekly, @monthly, @midnight
+		@hourly --> Build every hour at the beginning of the hour --> 0 * * * *
+		@daily, @midnight --> Build every day at midnight --> 0 0 * * *
+		@weekly --> Build every week at midnight on Sunday morning --> 0 0 * * 0
+		@monthly --> Build every month at midnight of the first day of the month --> 0 0 1 * *
+Jenkins schedule format
+Jenkins schedule format is nothing but a cron schedule expression. It contains 5 fields
+		 ┌───────────── minute (0 - 59)
+		 │ ┌───────────── hour (0 - 23)
+		 │ │ ┌───────────── day of month (1 - 31)
+		 │ │ │ ┌───────────── month (1 - 12)
+		 │ │ │ │ ┌───────────── day of week (0 - 6) (Sunday to Saturday;
+		 │ │ │ │ │                                       7 is also Sunday on some systems)
+		 │ │ │ │ │
+		 │ │ │ │ │
+		 * * * * *  schedule command to execute
+https://www.lenar.io/jenkins-schedule-build-periodically/
+
+Jenkins build periodically - examples
+Build every hour:
+H * * * *
+
+Build every 20 minutes:
+H/20 * * * *
+
+Build every 20 minutes 5am to 11pm:
+H/20 5-23 * * *
+
+Build every 20 minutes, work time/days (8am-6pm, MON-FRI) only:
+H/20 8-18 * * 1-5
+
+Build every hour MON-WED and FRI only:
+H * * * 1-3,5
+
+Build every hour, weekends in April and December:
+H * * 4,12 *
+
+Build at 8.30am on July 4:
+30 8 4 7 *
+
+
+
+Schedule Alias	Schedule Description	Schedule command
+@hourly	Build every hour at the beginning of the hour	0 * * * *
+@daily, @midnight	Build every day at midnight	0 0 * * *
+@weekly	Build every week at midnight on Sunday morning	0 0 * * 0
+@monthly	Build every month at midnight of the first day of the month	0 0 1 * *

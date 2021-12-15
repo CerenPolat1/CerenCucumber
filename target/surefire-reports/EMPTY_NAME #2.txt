@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: EMPTY_NAME #2
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 5.428 s <<< FAILURE! - in EMPTY_NAME #2
-EMPTY_NAME #2.Login to Matrix LMS  Time elapsed: 5.428 s  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 5.333 s <<< FAILURE! - in EMPTY_NAME #2
+EMPTY_NAME #2.Login to Matrix LMS  Time elapsed: 5.333 s  <<< ERROR!
 io.cucumber.junit.UndefinedStepException: 
 The step 'The user wants to go to Matrix' and 3 other step(s) are undefined.
 You can implement these steps using the snippet(s) below:
